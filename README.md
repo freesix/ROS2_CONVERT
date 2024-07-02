@@ -102,7 +102,26 @@ ros2 launch ros2_bag_to_imu topic_to_imu.launch.py \
 
 
 ### Imu or/and Image To BAG
-Write Imu data
+Imu raw data or/and Image raw write a ROS2 bag, you can just write imu or image, or 
+both.
+
+**note:** your imu data is named `imu.csv`. image path is `/Yourpath/topic1/`, because maybe you have multiple topics.
+
+How to launch:
+```
+ros2 launch data_to_bag data_to_bag.launch.py  \
+    input/path:=/imu output/path:=/out input/imu_topic:="/imu0/"  \ 
+    input/img_topics:="['topic1', ..., 'topicN']"
+```
+
+if you just want to write imu
+
+How to launch:
+```
+ros2 launch data_to_bag data_to_bag.launch.py  \
+    input/path:=/imu output/path:=/out input/imu_topic:="/imu0/" 
+```
+
 
 
 

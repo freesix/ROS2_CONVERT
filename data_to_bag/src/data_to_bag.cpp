@@ -16,7 +16,7 @@ DataToBag::DataToBag(const rclcpp::NodeOptions &options) : Node("data_to_bag", o
 void DataToBag::WriteBag(){
     
     writer_->open(output_bag_path_+"out");
-    if(0){
+    if(convert_imu_){
         writer_->create_topic({
             imu_topic_,
             "sensor_msgs/msg/Imu",
@@ -91,7 +91,6 @@ sensor_msgs::msg::Image DataToBag::ImageToBag(std::string &img){
         RCLCPP_ERROR_STREAM(get_logger(), "Error reading image");
         rclcpp::shutdown();
     }
-    RCLCPP_INFO_STREAM(get_logger(), "Image read: " << img);
     std::string img_name = img.substr(img.find_last_of('/')+1);
     cv_bridge::CvImage cv_img;
     cv_img.image = image;
