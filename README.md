@@ -108,7 +108,7 @@ both.
 **note:** your imu data is named `imu.csv`. image path is `/Yourpath/topic1/`, because maybe you have multiple topics.
 
 How to launch:
-```
+```bash
 ros2 launch data_to_bag data_to_bag.launch.py  \
     input/path:=/imu output/path:=/out input/imu_topic:="/imu0/"  \ 
     input/img_topics:="['topic1', ..., 'topicN']"
@@ -117,9 +117,17 @@ ros2 launch data_to_bag data_to_bag.launch.py  \
 if you just want to write imu
 
 How to launch:
-```
-ros2 launch data_to_bag data_to_bag.launch.py  \
+```bash
+ros2 launch data_to_bag imu_to_bag.launch.py  \
     input/path:=/imu output/path:=/out input/imu_topic:="/imu0/" 
+```
+
+if you just want to write image
+
+How to launch:
+```bash
+ros2 launch data_to_bag img_to_bag.launch.py \ 
+    input/path:=/img output/path:=/out input/img_topics:="['topic1', 'topic2']"
 ```
 
 

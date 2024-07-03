@@ -16,10 +16,6 @@ def generate_launch_description():
             'output/bag_path',
             description="Output Rosbag Path"
             ),
-        DeclareLaunchArgument(
-            'input/imu_topic',
-            description="Input IMU Topic",
-            ),
                  
         DeclareLaunchArgument(
             'input/img_topics',
@@ -28,11 +24,10 @@ def generate_launch_description():
         
         Node(
             package="data_to_bag",
-            executable="data_to_bag_node",
-            name="data_to_bag_node",
+            executable="img_to_bag_node",
+            name="img_to_bag_node",
             parameters=[{'input/path':LaunchConfiguration('input/path')},
                         {'output/bag_path':LaunchConfiguration('output/bag_path')},
-                        {'input/imu_topic':LaunchConfiguration('input/imu_topic')},
                         {'input/img_topics':LaunchConfiguration('input/img_topics')}
                         ],
             ros_arguments=['--log-level', log_level]

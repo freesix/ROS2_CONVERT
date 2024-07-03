@@ -11,10 +11,22 @@ ament_auto_find_build_dependencies()
 
 ament_auto_add_library(data_to_bag SHARED
   src/data_to_bag.cpp)
-
 rclcpp_components_register_node(data_to_bag
   PLUGIN "DataToBag"
   EXECUTABLE data_to_bag_node)
+
+ament_auto_add_library(imu_to_bag SHARED
+  src/imu_to_bag.cpp)
+rclcpp_components_register_node(imu_to_bag
+  PLUGIN "ImuToBag"
+  EXECUTABLE imu_to_bag_node)
+
+ament_auto_add_library(img_to_bag SHARED
+  src/img_to_bag.cpp)
+rclcpp_components_register_node(img_to_bag
+  PLUGIN "ImgToBag"
+  EXECUTABLE img_to_bag_node)
+
 
 ament_auto_package(INSTALL_TO_SHARE
   launch)
