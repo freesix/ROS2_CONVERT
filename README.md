@@ -26,7 +26,7 @@ Whether it's extracting pictures/imu or writing pictures/imu. Their format is as
 ```bash
 mkdir -p WS_space/src
 cd WS_space
-git clone http://github.com/freesix/covert_ros2.git
+git clone http://github.com/freesix/covert_ros2.git src/
 source /opt/ros/humble/setup.bash
 colcon build
 ```
