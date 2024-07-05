@@ -52,7 +52,6 @@ Set `compressed` to `True` to subscribe to a compressed image_transport.
 |-----------------|--------------|------------------------------------|
 | `input/topic`   | `/image_raw` | ROS2 Topic to subscribe            |
 | `output/path`   | `/tmp/`      | Path where to store the PNG files. |
-| `output/prefix` |              | Text to prepend to the output file |
 
 ### BAG To Image
 
@@ -73,8 +72,8 @@ $ ros2 launch ros2_bag_to_image bag_to_image.launch.py \
 | Parameter              | Default   | Description                                                         |
 |------------------------|-----------|---------------------------------------------------------------------|
 | `input/path`           |           | Input Rosbag Path                                                   |
-| `input/bag_format`     | `cdr`     | Path where to store the PNG files.                                  |
-| `input/bag_storage_id` | `sqlite3` | Text to prepend to the output file                                  |
+| `input/bag_format`     | `cdr`     |                                   |
+| `input/bag_storage_id` | `sqlite3` |                                  |
 | `input/topics`         |           | List of Input Topics in the form `"['topic1', 'topic2', 'topicN']"` |
 | `output/path`          | `/tmp/`   | Output path PNG files                                               |
 
@@ -87,7 +86,7 @@ format is [imu](#**IMU**)
 How to launch:
 ```
 ros2 launch ros2_bag_to_imu topic_to_imu.launch.py \
-    input/path:=/imu output/path:=/out input/topics"['topic1']"
+    input/path:=/imu output/path:=/out input/topics:="topic1"
 ```
 
 
@@ -95,9 +94,9 @@ ros2 launch ros2_bag_to_imu topic_to_imu.launch.py \
 | Parameter              | Default   | Description                                                         |
 |------------------------|-----------|---------------------------------------------------------------------|
 | `input/path`           |           | Input Rosbag Path                                                   |
-| `input/bag_format`     | `cdr`     | Path where to store the PNG files.                                  |
-| `input/bag_storage_id` | `sqlite3` | Text to prepend to the output file                                  |
-| `input/topics`         |           | List of Input Topics in the form `"['topic1']"` |
+| `input/bag_format`     | `cdr`     |                                 |
+| `input/bag_storage_id` | `sqlite3` |                                |
+| `input/topics`         |           | Input Topics in the form "topic1" |
 | `output/path`          | `/tmp/`   | Output path of imu.csv                                              |
 
 
